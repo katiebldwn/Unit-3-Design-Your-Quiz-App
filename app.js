@@ -41,7 +41,7 @@ $(document).ready(function() {
 		answers: ["Ross", "Joey", "Chandler", "Gunther"],
 		correctIndex: 2
 	}]
-}
+	
 
 
 $('.startQuiz').on('click', function() {
@@ -53,6 +53,17 @@ $('.startQuiz').on('click', function() {
 function showQuestion() {
 	var questionObject=questions[currentQuestion];
 	$('.question').text(questionObject.question);
-	}
+	//var answerObject=[question.answers[0]];
+	$('#answerList').text(questionObject.answers[0]);
+};
+
+
+
+
+
+
+
+
 
 });
+
