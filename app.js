@@ -69,7 +69,7 @@ function showQuestion() {
 		if (choice == correctAnswer) {
 			questionsAnswered++;
 			questionsCorrect++;
-			$('.feedback').html('<p class="correct">Correct!'+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
+			$('.feedback').html('<p class="correct">Correct! The correct answer is: '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
 		}
 		else {
 			questionsAnswered++;
@@ -85,6 +85,9 @@ $('.nextQuestion').on('click', function() {
 	showQuestion();
 	$('#answerList button:disabled').remove();
 	$('.feedback').html('');
+	if (currentQuestion == currentQuestion[10]) {
+		$('.nextQuestion').prop('disabled', true);
+	}
 });
 
 
