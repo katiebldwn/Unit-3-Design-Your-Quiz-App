@@ -42,6 +42,10 @@ $(document).ready(function() {
 		correctIndex: 2
 	}]
 	
+questionsAnswered=0
+
+questionsCorrect=0
+
 
 
 $('.startQuiz').on('click', function() {
@@ -54,8 +58,34 @@ function showQuestion() {
 	var questionObject=questions[currentQuestion];
 	$('.question').text(questionObject.question);
 	//var answerObject=[question.answers[0]];
-	$('#answerList').text(questionObject.answers[0]);
+	//$('#answerList').text(questionObject.answers);
+	for (var i=0; i<4; i++) {
+		$('#answerList').append('<button class="choice" id="'+i+'">'+questionObject.answers[i]+'</button>')
+		console.log(questionObject.answers[i]);
+	}
+	$('button.choice').on('click', function() {
+		var choice=$(this).attr('id');
+		var correctAnswer=questionObject.correctIndex
+		if (choice == correctAnswer) {
+			questionsAnswered++;
+			questionsCorrect++;
+			$('.feedback').html('<p class="correct">Correct! The correct answer is '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
+		}
+		else {
+			questionsAnswered++;
+			$('.feedback').html('<p class="wrong">Incorrect! The correct answer is '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
+		}
+		$('button.choice').prop('disabled', true);
+	})
 };
+
+
+$('.nextQuestion').on('click', function() {
+	currentQuestion++
+	showQuestion();
+	$('#answerList button:disabled').remove();
+	$('.feedback').html('');
+});
 
 
 

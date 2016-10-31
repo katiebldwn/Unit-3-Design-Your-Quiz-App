@@ -1,3 +1,19 @@
+* {
+	font-family: 'Architects Daughter', cursive;
+}
+
 .questionWrapper {
 	display: none;
+}
+
+p.correct {
+	background-color: #005600;
+	color: #FFFFFF;
+	padding: 5px;
+}
+
+p.wrong {
+	background-color: #A60000;
+	color: #FFFFFF;
+	padding: 5px;
 }
