@@ -69,11 +69,11 @@ function showQuestion() {
 		if (choice == correctAnswer) {
 			questionsAnswered++;
 			questionsCorrect++;
-			$('.feedback').html('<p class="correct">Correct! The correct answer is '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
+			$('.feedback').html('<p class="correct">Correct!'+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
 		}
 		else {
 			questionsAnswered++;
-			$('.feedback').html('<p class="wrong">Incorrect! The correct answer is '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
+			$('.feedback').html('<p class="wrong">Incorrect! The correct answer is: '+questionObject.answers[correctAnswer]+' ('+questionsCorrect+'/'+questionsAnswered+')</p>');
 		}
 		$('button.choice').prop('disabled', true);
 	})
