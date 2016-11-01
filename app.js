@@ -85,13 +85,8 @@ $('.nextQuestion').on('click', function() {
 	showQuestion();
 	$('#answerList button:disabled').remove();
 	$('.feedback').html('');
-	if (currentQuestion == currentQuestion[10]) {
-		$('.nextQuestion').prop('disabled', true);
-	}
+
 });
-
-
-
 
 
 
