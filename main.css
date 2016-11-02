@@ -4,12 +4,22 @@
 
 body {
 	background-image: url("http://www.hd-wallpapers.com/download/seinfeld-toms-restaurant-2880_1920x1080_43-hd.jpg");
+	padding: 50px;
 }
 
 .startingPic {
 	height: 40%;
 	width: 40%;
+	display: block;
 	margin: auto;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.startQuiz {
+	display: block;
+	margin: auto;
+	margin-top: 20px;
 }
 
 .questionWrapper {
@@ -30,7 +40,7 @@ p.wrong {
 }
 
 p.question img {
-	top: 100px;
+
 }
 
 button {
@@ -38,3 +48,11 @@ button {
 	border-radius: 5px;
 	font-size: 14px;
 }
+
+
+
+
+
+
+
+
