@@ -4,50 +4,60 @@ $(document).ready(function() {
 		question: "What Seinfeld character wasn't present in the pilot episode?",
 		answers: ["Jerry", "George", "Kramer", "Elaine"],
 		correctIndex: 3,
-		image: "http://static.tvfanatic.com/images/gallery/the-seinfeld-chronicles-picture.jpg"
+		image: "http://mediad.publicbroadcasting.net/p/demowgbh/files/201407/SeinfeldA.jpg"
 	}, {
 		question: "Which of the following did Jerry NOT date?",
 		answers: ["Beth", "Susan", "Vanessa", "Jeannie"],
-		correctIndex: 1
+		correctIndex: 1,
+		image: "http://i0.wp.com/fusiondotnet.files.wordpress.com/2015/06/brigette.png%3Fw%3D670%26quality%3D80%26strip%3Dall"
 	}, {
 		question: "After 9 years, how many episodes were there?",
 		answers: ["200", "165", "180", "95"],
-		correctIndex: 2
+		correctIndex: 2,
+		image: "http://www.eonline.com/eol_images/Entire_Site/2013818/rs_560x415-130918121816-1024.seinfeldcast.cm.91813_copy.jpg"
 	}, {
 		question: "What is Elaine's trademark line?",
 		answers: ["Get out!", "It's not you, it's me", "Oh, the humanity!", "Giddyup!"],
-		correctIndex: 0
+		correctIndex: 0,
+		image: "http://www.6sqft.com/wp-content/uploads/2015/03/Seinfeld-Elaine-212.jpg"
 	}, {
 		question: "What is Kramer's first name?",
 		answers: ["Karl", "Cosmo", "Kenny", "Constantine"],
-		correctIndex: 1
+		correctIndex: 1,
+		image: "http://seinfeld-v1.tripod.com/pictures/kramer/seinfeld_tkramer8.jpg"
 	}, {
 		question: "What is the Soup Nazi's favorite expression?",
 		answers: ["Die!", "For you, nothing!", "No soup for you!", "Get out!"],
-		correctIndex: 2
+		correctIndex: 2,
+		image: "http://i.telegraph.co.uk/multimedia/archive/02964/SoupNazi1_2964691k.jpg"
 	}, {
 		question: "What does Kramer accuse Calvin Klein of stealing from him?",
 		answers: ["His shoes", "An underwear style", "His credit card", "A cologne he invented"],
-		correctIndex: 3
+		correctIndex: 3,
+		image: "http://cdn.playbuzz.com/cdn/0a9b3361-3273-4f39-9047-d96fa5f15d7b/1dafc16f-b3d7-4a72-895b-59d10b861a97.jpg"
 	}, {
 		question: "Why couldn't Jerry date Jillian?",
 		answers: ["She had implants", "Her man hands", "He couldn't remember her name", "She made him feel nauseous"],
-		correctIndex: 1
+		correctIndex: 1,
+		image: "http://kramersapartment.com/wp-content/uploads/gillian-the-bizarro-jerry-seinfeld.jpg"
 	}, {
 		question: "In the final episode, what was the last topic of conversation when they were all in the jail cell together?",
 		answers: ["How bad the food is in jail", "How they miss the diner", "How the second button on a shirt can be too high", "What movie they're going to see when they get out"],
-		correctIndex: 2
+		correctIndex: 2,
+		image: "http://cdn.pastemagazine.com/www/blogs/lists/2013/08/21/seinfeld-prison.jpg"
 	}]
 	
 questionsAnswered=0
 
 questionsCorrect=0
 
-
+$('.endPic').hide();
+$('.themeSong').hide();
 
 $('.startQuiz').on('click', function() {
 	showQuestion();
 	$('.startQuiz').fadeOut();
+	$('.startingPic').fadeOut();
 	$('.questionWrapper').fadeIn();
 	$('.startAgain').hide();
 });
@@ -83,6 +93,7 @@ $('.nextQuestion').on('click', function() {
 		$('.question').hide();
 		$('.nextQuestion').hide();
 		$('.startAgain').show();
+		$('.endPic').show();
 		$('#answerList button:disabled').remove();
 		$('.feedback').html('<p class="finished">End of Quiz! You got: '+questionsCorrect+' correct out of '+questionsAnswered+'</p>');
 		currentQuestion = 0;
@@ -97,8 +108,10 @@ $('.nextQuestion').on('click', function() {
 
 });
 
+
 $('.startAgain').on('click', function() {
 	$(this).hide();
+	$('.endPic').hide();
 	$('.question').show();
 	$('.nextQuestion').show();
 	$('.feedback').html('');

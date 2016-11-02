@@ -1,9 +1,20 @@
 * {
-	font-family: 'Taviraj', cursive;
+	font-family: 'Taviraj', sans-serif;
+}
+
+body {
+	background-image: url("http://www.hd-wallpapers.com/download/seinfeld-toms-restaurant-2880_1920x1080_43-hd.jpg");
+}
+
+.startingPic {
+	height: 40%;
+	width: 40%;
+	margin: auto;
 }
 
 .questionWrapper {
 	display: none;
+	background-color: #FFFFFF;
 }
 
 p.correct {
@@ -16,4 +27,14 @@ p.wrong {
 	background-color: #A60000;
 	color: #FFFFFF;
 	padding: 5px;
+}
+
+p.question img {
+	top: 100px;
+}
+
+button {
+	padding: 5px;
+	border-radius: 5px;
+	font-size: 14px;
 }
