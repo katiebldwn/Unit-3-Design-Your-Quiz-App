@@ -1,44 +1,41 @@
 $(document).ready(function() {
 	var currentQuestion=0;
 	var questions=[{
-		question: "What Friends character said this: 'It's a moo point. It's like a cow's opinion; it doesn't matter. It's moo.'",
-		answers: ["Ross", "Rachel", "Chandler", "Joey"],
-		correctIndex: 3
+		question: "What Seinfeld character wasn't present in the pilot episode?",
+		answers: ["Jerry", "George", "Kramer", "Elaine"],
+		correctIndex: 3,
+		image: "http://static.tvfanatic.com/images/gallery/the-seinfeld-chronicles-picture.jpg"
 	}, {
-		question: "What is the alias Phoebe occasionally uses throughout the show?",
-		answers: ["Phoerber Burffer", "Regina Phalange", "Agent Phoebs", "Jane Doe"],
+		question: "Which of the following did Jerry NOT date?",
+		answers: ["Beth", "Susan", "Vanessa", "Jeannie"],
 		correctIndex: 1
 	}, {
-		question: "What 80's Victoria's Secret model does Chandler meet while trapped in the ATM vestibule during the blackout?",
-		answers: ["Cindy Crawford", "Brooke Shields", "Jill Goodacre", "Cheryl Tiegs"],
+		question: "After 9 years, how many episodes were there?",
+		answers: ["200", "165", "180", "95"],
 		correctIndex: 2
 	}, {
-		question: "When Ross attempts to impress a date, what part of his wardrobe makes him overheat and end up covered in baby powder and lotion?",
-		answers: ["leather pants", "wool sweater", "thermal gloves", "fur coat"],
+		question: "What is Elaine's trademark line?",
+		answers: ["Get out!", "It's not you, it's me", "Oh, the humanity!", "Giddyup!"],
 		correctIndex: 0
 	}, {
-		question: "When Ross, Rachel and Chandler are trying to move a couch up a flight of stairs, what word does Ross continuously shout?",
-		answers: ["LIFT!", "PIVOT!", "GO!", "STOP!"],
+		question: "What is Kramer's first name?",
+		answers: ["Karl", "Cosmo", "Kenny", "Constantine"],
 		correctIndex: 1
 	}, {
-		question: "What neighbor across the street do the Friends occasionally watch?",
-		answers: ["Weird Al", "Messy Girl", "Ugly Naked Guy", "Creeper McGee"],
+		question: "What is the Soup Nazi's favorite expression?",
+		answers: ["Die!", "For you, nothing!", "No soup for you!", "Get out!"],
 		correctIndex: 2
 	}, {
-		question: "What marriage-prone friend did Chandler say this to: 'If you're not careful, you may not get married at all this year!'",
-		answers: ["Ross", "Monica", "Joey", "Rachel"],
-		correctIndex: 0
-	}, {
-		question: "What is Chandler and Joey's favorite TV show?",
-		answers: ["Fresh Prince of Bel-Air", "The Simpsons", "Seinfeld", "Baywatch"],
+		question: "What does Kramer accuse Calvin Klein of stealing from him?",
+		answers: ["His shoes", "An underwear style", "His credit card", "A cologne he invented"],
 		correctIndex: 3
 	}, {
-		question: "What song did Ross sing to make his daughter Emma laugh?",
-		answers: ["Baby One More Time", "Baby Got Back", "YMCA", "Groove is in the Heart"],
+		question: "Why couldn't Jerry date Jillian?",
+		answers: ["She had implants", "Her man hands", "He couldn't remember her name", "She made him feel nauseous"],
 		correctIndex: 1
 	}, {
-		question: "What friend said this: 'I know, this must be so hard. 'Oh no, two women love me! They're both gorgeous and sexy. My wallet's too tight for my fifties and my diamond shoes are too tight!''",
-		answers: ["Ross", "Joey", "Chandler", "Gunther"],
+		question: "In the final episode, what was the last topic of conversation when they were all in the jail cell together?",
+		answers: ["How bad the food is in jail", "How they miss the diner", "How the second button on a shirt can be too high", "What movie they're going to see when they get out"],
 		correctIndex: 2
 	}]
 	
@@ -52,16 +49,16 @@ $('.startQuiz').on('click', function() {
 	showQuestion();
 	$('.startQuiz').fadeOut();
 	$('.questionWrapper').fadeIn();
+	$('.startAgain').hide();
 });
 
 function showQuestion() {
 	var questionObject=questions[currentQuestion];
-	$('.question').text(questionObject.question);
+	$('.question').text(questionObject.question).prepend('<img src="'+questionObject.image+'" style="height:150px; float: left">');
 	//var answerObject=[question.answers[0]];
 	//$('#answerList').text(questionObject.answers);
 	for (var i=0; i<4; i++) {
 		$('#answerList').append('<button class="choice" id="'+i+'">'+questionObject.answers[i]+'</button>')
-		console.log(questionObject.answers[i]);
 	}
 	$('button.choice').on('click', function() {
 		var choice=$(this).attr('id');
@@ -81,17 +78,32 @@ function showQuestion() {
 
 
 $('.nextQuestion').on('click', function() {
-	currentQuestion++
+	console.log(currentQuestion);
+	if (currentQuestion >= 8) {
+		$('.question').hide();
+		$('.nextQuestion').hide();
+		$('.startAgain').show();
+		$('#answerList button:disabled').remove();
+		$('.feedback').html('<p class="finished">End of Quiz! You got: '+questionsCorrect+' correct out of '+questionsAnswered+'</p>');
+		currentQuestion = 0;
+		questionsAnswered = 0;
+		questionsCorrect = 0;
+	} else {
+		currentQuestion++
 	showQuestion();
 	$('#answerList button:disabled').remove();
 	$('.feedback').html('');
+	}
 
 });
 
-
-
-
-
+$('.startAgain').on('click', function() {
+	$(this).hide();
+	$('.question').show();
+	$('.nextQuestion').show();
+	$('.feedback').html('');
+	showQuestion();
+})
 
 });
 
