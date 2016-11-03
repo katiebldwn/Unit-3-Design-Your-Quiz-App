@@ -24,7 +24,7 @@ $(document).ready(function() {
 		question: "What is Kramer's first name?",
 		answers: ["Karl", "Cosmo", "Kenny", "Constantine"],
 		correctIndex: 1,
-		image: "http://seinfeld-v1.tripod.com/pictures/kramer/seinfeld_tkramer8.jpg"
+		image: "http://36.media.tumblr.com/e43b19a3f1b4cb8aea5465dd7dcca73b/tumblr_mp54ps8c6O1sxkvkuo4_1280.png"
 	}, {
 		question: "What is the Soup Nazi's favorite expression?",
 		answers: ["Die!", "For you, nothing!", "No soup for you!", "Get out!"],
@@ -95,8 +95,9 @@ $('.nextQuestion').on('click', function() {
 		$('.nextQuestion').hide();
 		$('.startAgain').show();
 		$('.endPic').show();
+		$('.imageWrapper').hide();
 		$('#answerList button:disabled').remove();
-		$('.feedback').html('<p class="finished">End of Quiz! You got: '+questionsCorrect+' correct out of '+questionsAnswered+'</p>');
+		$('.feedback').html('<p class="finished">Great Try! You got: '+questionsCorrect+' correct out of '+questionsAnswered+'</p>');
 		currentQuestion = 0;
 		questionsAnswered = 0;
 		questionsCorrect = 0;
@@ -116,6 +117,7 @@ $('.startAgain').on('click', function() {
 	$('.question').show();
 	$('.nextQuestion').show();
 	$('.feedback').html('');
+	$('.imageWrapper').show();
 	showQuestion();
 })
 
