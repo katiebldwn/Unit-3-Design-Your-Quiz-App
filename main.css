@@ -3,8 +3,15 @@
 }
 
 body {
-	background-image: url("http://www.hd-wallpapers.com/download/seinfeld-toms-restaurant-2880_1920x1080_43-hd.jpg");
-	padding: 50px;
+	padding: 150px;
+	background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(255, 255, 255, 0.45), 
+      rgba(255, 255, 255, 0.45)
+    ),
+    /* bottom, image */
+    url(http://www.hd-wallpapers.com/download/seinfeld-toms-restaurant-2880_1920x1080_43-hd.jpg);
 }
 
 .startingPic {
@@ -25,6 +32,12 @@ body {
 .questionWrapper {
 	display: none;
 	background-color: #FFFFFF;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.imageWrapper img {
+	width: 250px;
 }
 
 p.correct {
@@ -39,16 +52,16 @@ p.wrong {
 	padding: 5px;
 }
 
-p.question img {
-
-}
+/*p.question img {
+	display: block;
+	margin: auto;
+}*/
 
 button {
 	padding: 5px;
 	border-radius: 5px;
 	font-size: 14px;
 }
-
 
 
 

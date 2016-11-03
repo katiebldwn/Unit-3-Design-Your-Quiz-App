@@ -64,7 +64,8 @@ $('.startQuiz').on('click', function() {
 
 function showQuestion() {
 	var questionObject=questions[currentQuestion];
-	$('.question').text(questionObject.question).prepend('<img src="'+questionObject.image+'" style="height:150px; float: left">');
+	$('.question').text(questionObject.question);
+	$('.imageWrapper').html('<img src="'+questionObject.image+'">');
 	//var answerObject=[question.answers[0]];
 	//$('#answerList').text(questionObject.answers);
 	for (var i=0; i<4; i++) {
