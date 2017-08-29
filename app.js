@@ -14,7 +14,7 @@ $(document).ready(function() {
 		question: "After 9 years, how many episodes were there?",
 		answers: ["200", "165", "180", "95"],
 		correctIndex: 2,
-		image: "http://www.eonline.com/eol_images/Entire_Site/2013818/rs_560x415-130918121816-1024.seinfeldcast.cm.91813_copy.jpg"
+		image: "https://cdn-images-1.medium.com/max/2000/1*2_OrQzxPPhxkZoyIIeApaA.jpeg"
 	}, {
 		question: "What is Elaine's trademark line?",
 		answers: ["Get out!", "It's not you, it's me", "Oh, the humanity!", "Giddyup!"],
@@ -24,7 +24,7 @@ $(document).ready(function() {
 		question: "What is Kramer's first name?",
 		answers: ["Karl", "Cosmo", "Kenny", "Constantine"],
 		correctIndex: 1,
-		image: "http://36.media.tumblr.com/e43b19a3f1b4cb8aea5465dd7dcca73b/tumblr_mp54ps8c6O1sxkvkuo4_1280.png"
+		image: "https://1835441770.rsc.cdn77.org/static.awlnetwork.com/wp-content/uploads/sites/2/2011/06/michael-richards-kramer-1-e1308868274133.jpg"
 	}, {
 		question: "What is the Soup Nazi's favorite expression?",
 		answers: ["Die!", "For you, nothing!", "No soup for you!", "Get out!"],
