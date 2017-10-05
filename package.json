@@ -15,5 +15,9 @@
     "url": "https://github.com/katiebldwn/Unit-3-Design-Your-Quiz-App/issues"
   },
   "homepage": "https://github.com/katiebldwn/Unit-3-Design-Your-Quiz-App#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1"
+  }
 }
